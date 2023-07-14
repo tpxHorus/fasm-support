@@ -1,0 +1,91 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "fasm",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#keywords"
+		}
+	],
+	"repository": {
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.single",
+					"begin": "'",
+					"end": "'"
+				},
+				{
+					"name": "string.quoted.double",
+					"begin": "\"",
+					"end": "\""
+				}
+			]
+		},
+
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"begin": ";",
+					"end": "\\n"
+				}
+			]
+		},
+
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b((\\d+.\\d+)|(\\d+d?)|(\\d+o)|([\\d[a-fA-F]]+h)|([01]+b))\\b"
+				}
+			]
+		},
+
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control",
+					"match": "\\b(segment|syscall|ret|([dr][bwdpfqt])|du)\\b"
+				},
+				{
+					"name": "variable.language",
+					"match": "\\b(format|entry|readable|writeable|executable)\\b"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\b\\w+:"
+				},
+				{
+					"name": "variable.parameter",
+					"match": "\\b(mov|lea|cmp|push|pop|add|sub|i?(mul|div)|dec|inc|(j|loop)(p[eo]|n?([ocezsp]|[ablg]e?))|jmp|extern|global|and|or|xor|not|neg|shl|shr)\\b"
+				},
+				{
+					"name": "constant.language",
+					"match": "\\b(([a-d][lhx])|([er]?[a-d]x)|([r]?(8|9|10|11|12|13|14|15)[dwl])|((si|di|bp|sp)l?)|([er]?(si|di|bp|sp|ip))|([cdsefg]s))\\b"
+				}
+			]
+		},
+
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator",
+					"match": "\\s(=)\\s"
+				}
+			]
+		}
+	},
+	"scopeName": "source.fasm"
+}

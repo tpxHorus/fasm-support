@@ -1,0 +1,26 @@
+{
+  "name": "fasm-support",
+  "displayName": "fasm support",
+  "description": "Syntax highlighting for flat assembler",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "fasm",
+      "aliases": ["fasm", "fasm"],
+      "extensions": [".asm"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "fasm",
+      "scopeName": "source.fasm",
+      "path": "./syntaxes/fasm.tmLanguage.json"
+    }]
+  },
+  "repository": "https://github.com/tpxhorus/fasm-support"
+}
